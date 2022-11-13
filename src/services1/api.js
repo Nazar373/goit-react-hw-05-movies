@@ -8,6 +8,8 @@ export const trendingMovie = async () => {
   const { data } = await axios.get(`/trending/all/day?api_key=${KEY}`);
   return data;
 };
+
+
 export const searchMovie = async query => {
   const {data} = await axios.get(`/search/movie?api_key=${KEY}&query=${query}`);
   return data.results
