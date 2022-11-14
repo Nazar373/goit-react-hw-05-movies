@@ -5,8 +5,10 @@ import MovieDetailsItem from 'components/MovieDetailsItem/MovieDetailsItem';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
+  console.log('first', location)
 
   const backLinkHref = location.state?.from ?? '/movies';
+  console.log('second', backLinkHref)
 
   const [movieDetails, setMovieDetails] = useState([]);
   useEffect(() => {
@@ -20,11 +22,13 @@ const MovieDetails = () => {
   return (
     <>
       {location.state ? (
-        <Link to={backLinkHref}>Go back</Link>
-      ) : (
+        <Link to={backLinkHref} >Go back</Link>
+      ) 
+      : (
         <Link to="/">Go back</Link>
-      )}
-
+      )
+      }
+      
       {movieDetails.length !== 0 && <MovieDetailsItem data={data} />}
       <Suspense fallback={null}>
         <Outlet />

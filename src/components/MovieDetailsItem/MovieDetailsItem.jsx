@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 const MovieDetailsItem = ({ data }) => {
-
+  const location = useLocation();
   const { genres, overview, poster_path, title, name, vote_average } = data;
-
+  
   return (
     <div>
       <img
@@ -22,10 +21,10 @@ const MovieDetailsItem = ({ data }) => {
       </p>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={location.state}>Cast</Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={location.state}>Reviews</Link>
         </li>
       </ul>
     </div>
